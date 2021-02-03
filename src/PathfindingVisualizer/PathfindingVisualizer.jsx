@@ -27,8 +27,16 @@ class PathfindingVisualizer extends Component {
         return(
             <div className="grid">
                 {nodes.map((row,rowIdx) => {
-                    return <div>
-                        {row.map((node,nodeIdx) => <Node></Node>)}
+                    return <div key={rowIdx}>
+                        {row.map((node,nodeIdx) => {
+                          const {isStart,isFinish}=node;
+                          return (<Node 
+                          key={nodeIdx} 
+                          isStart={isStart}
+                          isFinish={isFinish} 
+                          test={'foo'} 
+                          test={'kappa'}> 
+                          </Node>);})}
                     </div>
                 })}
             </div>
@@ -39,10 +47,16 @@ class PathfindingVisualizer extends Component {
 
 const getInitialGrid = () => {
     const grid = [];
-    for (let row = 0; row < 20; row++) {
+    for (let row = 0; row < 22; row++) {
       const currentRow = [];
-      for (let col = 0; col < 50; col++) {
-        currentRow.push(createNode(col, row));
+      for (let col = 0; col < 52; col++) {
+        const currentNode = {
+          col,
+          row,
+          isStart : row===7 && col === 10,
+          isFinish : row===10 && col ===45,
+        }
+        currentRow.push(currentNode);
       }
       grid.push(currentRow);
     }
