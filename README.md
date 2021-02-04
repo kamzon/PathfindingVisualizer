@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# PathFinding Visualiser:
+Build ReactJs application for visualizing pathfinding algorithms.
+Implement graph theory algorithms (Dijkstra, A* algorithm ...).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
